@@ -9,9 +9,6 @@ TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_ORIOLE_VERSION)
 TARGET_KERNEL_DIR ?= device/google/bluejay-kernels/aosp
 TARGET_BOARD_KERNEL_HEADERS ?= $(TARGET_KERNEL_DIR)/kernel-headers
 
-DEVICE_PACKAGE_OVERLAYS += device/google/bluejay/bluejay/overlay
-DEVICE_PACKAGE_OVERLAYS += device/google/bluejay/overlay-lineage
-
 include device/google/gs101/device-shipping-common.mk
 
 # Camera
@@ -39,8 +36,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml
 
 PRODUCT_PACKAGES += \
-	android.hardware.nfc-service.st \
-	NfcOverlayBluejay
+	android.hardware.nfc-service.st
 
 # SecureElement
 PRODUCT_PACKAGES += \
@@ -49,18 +45,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.ese.xml \
 	frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
-
-# Hide cutout overlays
-PRODUCT_PACKAGES += \
-    NoCutoutOverlay \
-    AvoidAppsInCutoutOverlay
-
-# SKU specific RROs
-PRODUCT_PACKAGES += \
-    SettingsOverlayGB17L \
-    SettingsOverlayG1AZG \
-    SettingsOverlayGB62Z \
-    SettingsOverlayGX7AS
 
 # This device is shipped with 32 (Android S V2)
 PRODUCT_SHIPPING_API_LEVEL := 32
@@ -91,6 +75,25 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     init.recovery.bluejay.touch.rc
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    device/google/bluejay/overlay-lineage
+
+PRODUCT_PACKAGES += \
+    DMServiceOverlayVendorBluejay \
+    FrameworkResOverlayProductBluejay \
+    FrameworkResOverlayVendorBluejay \
+    HbmSVManagerOverlayProductBluejay \
+    PixelNfcOverlayBluejay \
+    SafetyRegulatoryInfoOverlayProductBluejay \
+    SettingsGoogleBluejayOverlay \
+    SettingsGoogleOverlayProductBluejay \
+    SettingsOverlayG1AZG \
+    SettingsOverlayGB17L \
+    SettingsOverlayGB62Z \
+    SettingsOverlayGX7AS \
+    SystemUIGoogleOverlayVendorBluejay
 
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/$(DEVICE_CODENAME)/product.prop
