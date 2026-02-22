@@ -26,9 +26,6 @@ PRODUCT_PACKAGES += \
     ImsServiceEntitlement
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    device/google/bluejay/overlay-lineage
-
 PRODUCT_PACKAGES += \
     DMServiceOverlayVendorBluejay \
     FrameworkResOverlayProductBluejay \
@@ -43,6 +40,9 @@ PRODUCT_PACKAGES += \
     SettingsOverlayGB62Z \
     SettingsOverlayGX7AS \
     SystemUIGoogleOverlayVendorBluejay
+
+PRODUCT_PACKAGES += \
+    ApertureOverlayBluejay
 
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/$(DEVICE_CODENAME)/product.prop
