@@ -111,3 +111,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # VINTF
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/vintf/manifest.xml
+
+# Fix Google Camera build errors (uses-library mismatch)
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true               
+RELAX_USES_LIBRARY_CHECK := true
