@@ -115,3 +115,7 @@ DEVICE_MANIFEST_FILE += \
 # Fix Google Camera build errors (uses-library mismatch)
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true               
 RELAX_USES_LIBRARY_CHECK := true
+
+# sysconfig XML from stock
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
