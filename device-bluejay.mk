@@ -105,6 +105,7 @@ DEVICE_MANIFEST_FILE += \
 
 # Fix Google Camera build errors (uses-library mismatch)
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true               
+<<<<<<< HEAD
 RELAX_USES_LIBRARY_CHECK := true
 
 # sysconfig XML from stock
@@ -120,3 +121,5 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.radio.data_con_recovery=true \
     persist.radio.vowifi.enabled=true \
     persist.sys.cust.lte_config=true
+
+RELAX_USES_LIBRARY_CHECK := true
