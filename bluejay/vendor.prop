@@ -61,3 +61,13 @@ vendor.audio.hapticgenerator.distortion.output.gain=0.29
 
 # ZRAM
 vendor.zram.size=3g
+
+#Dalvik
+dalvik.vm.dex2oat64.enabled=true
+
+# Dex2oat Tuning for Balance (Battery & Smoothness)
+dalvik.vm.dex2oat-cpu-set=4,5,6,7
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.image-dex2oat-cpu-set=4,5,6,7
+dalvik.vm.image-dex2oat-threads=4
+dalvik.vm.dex2oat-filter=speed-profile
