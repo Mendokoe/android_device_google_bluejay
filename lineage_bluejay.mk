@@ -7,6 +7,16 @@
 # Inherit some common stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# LunarisOS Flags
+WITH_BCR := true
+WITH_GMS := false
+TARGET_CUSTOM_UDFPS := true
+TARGET_OPTIMIZED_DEXOPT := true
+TARGET_PIXEL_BOOT_ANIMATION_RES := 1080
+TARGET_SUPPORTED_REFRESH_RATES := 60
+HBM_SUPPORTED := true
+HBM_NODE := /sys/class/backlight/panel0-backlight/hbm_mode
+
 # Inherit device configuration
 DEVICE_CODENAME := bluejay
 DEVICE_PATH := device/google/bluejay

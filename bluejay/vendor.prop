@@ -39,6 +39,10 @@ persist.vendor.ril.use_radio_hal=1.6
 ro.vendor.config.build_carrier=europen
 vendor.rild.libpath=libsitril.so
 
+# ScrollOptimizer
+persist.sys.perf.scroll_opt=true
+persist.sys.perf.scroll_opt.heavy_app=1
+
 # SVN
 ro.vendor.build.svn=84
 

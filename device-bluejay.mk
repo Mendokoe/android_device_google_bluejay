@@ -5,15 +5,20 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-TARGET_LINUX_KERNEL_VERSION := 6.1
-TARGET_KERNEL_DEVICE := bluejay
-TARGET_KERNEL_DIR := device/google/$(TARGET_KERNEL_DEVICE)-kernels/$(TARGET_LINUX_KERNEL_VERSION)
-TARGET_KERNEL_PLATFORM_SOURCE := google/gs-$(TARGET_LINUX_KERNEL_VERSION)
+TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_ORIOLE_VERSION)
+TARGET_KERNEL_DIR ?= device/google/bluejay-kernels/aosp
+TARGET_BOARD_KERNEL_HEADERS ?= $(TARGET_KERNEL_DIR)/kernel-headers
 
 DEVICE_PACKAGE_OVERLAYS += device/google/bluejay/bluejay/overlay
 DEVICE_PACKAGE_OVERLAYS += device/google/bluejay/overlay-lineage
 
 include device/google/gs101/device-shipping-common.mk
+
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
+# Pixel Parts
+$(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 
 # Bluetooth
 PRODUCT_PACKAGES += \
