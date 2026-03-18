@@ -24,6 +24,45 @@ PRODUCT_PACKAGES += \
     SafetyRegulatoryInfoOverlayProductBluejay \
     SettingsGoogleBluejayOverlay \
     SettingsGoogleOverlayProductBluejay \
+    android.hardware.bluetooth.prebuilt.xml \
+    android.hardware.bluetooth_le.prebuilt.xml
+
+# Pixel Parts
+$(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
+
+# Recovery files
+PRODUCT_COPY_FILES += \
+	device/google/gs101/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.bluejay.rc
+
+# NFC
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
+	frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
+	frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
+	frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml \
+	frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
+	frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml
+
+PRODUCT_PACKAGES += \
+	android.hardware.nfc-service.st \
+	NfcOverlayBluejay
+
+# SecureElement
+PRODUCT_PACKAGES += \
+	android.hardware.secure_element@1.2-service-gto
+
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.ese.xml \
+	frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
+
+# Hide cutout overlays
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay \
+    AvoidAppsInCutoutOverlay
+
+# SKU specific RROs
+PRODUCT_PACKAGES += \
+    SettingsOverlayGB17L \
     SettingsOverlayG1AZG \
     SettingsOverlayGB17L \
     SettingsOverlayGB62Z \
