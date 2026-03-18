@@ -14,6 +14,9 @@ TARGET_KERNEL_PLATFORM_SOURCE := google/gs-$(TARGET_LINUX_KERNEL_VERSION)
 # Inherit from gs101
 include device/google/gs101/common.mk
 
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
 # Overlays
 PRODUCT_PACKAGES += \
     DMServiceOverlayVendorBluejay \
