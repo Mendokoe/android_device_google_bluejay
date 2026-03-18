@@ -30,6 +30,12 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.prebuilt.xml \
     android.hardware.bluetooth_le.prebuilt.xml
 
+# IMS Packages
+PRODUCT_PACKAGES += \
+    CarrierConfig \
+    ims-ext-common \
+    ImsServiceEntitlement
+
 # Pixel Parts
 $(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 
@@ -96,3 +102,21 @@ PRODUCT_SOONG_NAMESPACES += \
 # VINTF
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/vintf/manifest.xml
+
+# Fix Google Camera build errors (uses-library mismatch)
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true               
+RELAX_USES_LIBRARY_CHECK := true
+
+# sysconfig XML from stock
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
+
+# VoLTE & VoWiFi Overrides (Force Enable)
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.dbg.ims_volte_enable=1 \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1 \
+    persist.radio.calls.on.ims=1 \
+    persist.radio.data_con_recovery=true \
+    persist.radio.vowifi.enabled=true \
+    persist.sys.cust.lte_config=true
