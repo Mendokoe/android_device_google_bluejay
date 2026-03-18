@@ -7,6 +7,24 @@
 # Inherit some common stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Avium Flags
+AVIUM_VERSION_APPEND_TIME_OF_DAY := true
+AVIUM_MAINTAINER := srly8
+
+# Settings
+AVIUM_SETTINGS_SOC_MODEL_NAME := Google Tensor Gen 1
+AVIUM_SETTINGS_DEVICE_CODENAME := Bluejay
+
+# GMS
+WITH_GMS := true
+
+# Google IME
+TARGET_INCLUDE_GOOGLEIME := true
+TARGET_GOOGLEIME_OVERRIDE_IME := true
+
+# Spoof Props
+AVIUM_FORCE_SET_FAKE_PROP := true
+
 # Inherit device configuration
 DEVICE_CODENAME := bluejay
 DEVICE_PATH := device/google/bluejay
