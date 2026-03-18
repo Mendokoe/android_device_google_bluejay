@@ -15,6 +15,9 @@ DEVICE_PACKAGE_OVERLAYS += device/google/bluejay/overlay-lineage
 
 include device/google/gs101/device-shipping-common.mk
 
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.prebuilt.xml \
