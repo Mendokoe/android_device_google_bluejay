@@ -5,4 +5,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_bluejay.mk \
-    $(LOCAL_DIR)/lineage_bluejay.mk
+    $(LOCAL_DIR)/alpha_bluejay.mk
