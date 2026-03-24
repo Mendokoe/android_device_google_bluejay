@@ -1,0 +1,6 @@
+# Configuration for Pixel 6a
+ro.infinity.soc=Google Tensor Gen 1
+ro.infinity.battery=4410 mAh
+ro.infinity.display=1080 x 2400, OLED 60Hz
+ro.infinity.camera=12.2 MP + 12 MP
+ro.product.marketname=Pixel 6a
