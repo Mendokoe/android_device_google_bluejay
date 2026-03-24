@@ -4,5 +4,8 @@ bluetooth.device_id.product_id=16648
 # Google keyboard
 ro.com.google.ime.kb_pad_port_b=6.4
 
+# Maintainer
+ro.lunaris.maintainer=srly8
+
 # Quick start
 ro.quick_start.device_id=bluejay

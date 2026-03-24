@@ -16,6 +16,20 @@ vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=2
 ro.vendor.fingerprint.ta.name=g7.app
 vendor.gf.debug.timer.threshold=1,400,400,400,600,600,600
 
+# Media
+ro.odm.build.media_performance_class=31
+
+# Radio
+persist.vendor.ril.ecc.use.xml=1
+persist.vendor.ril.support_nr_ds=0
+persist.vendor.ril.use_radio_hal=1.6
+ro.vendor.config.build_carrier=europen
+vendor.rild.libpath=libsitril.so
+
+# ScrollOptimizer
+persist.sys.perf.scroll_opt=true
+persist.sys.perf.scroll_opt.heavy_app=1
+
 # SVN
 ro.vendor.build.svn=84
 
